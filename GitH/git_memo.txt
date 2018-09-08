@@ -1,0 +1,76 @@
+1ere configuration GIT
+git config --global user.name "Votre nom ou pseudo"
+git config --global user.email "Votre@email.com"
+ 
+Activer un dossier comme repository Git :
+se placer dans ce dossier avec le Terminal
+-< git init
+
+Création de fichier = mise a jour de l'index Git :
+-< git add nomDeVotreFichier.extension
+
+Ajouter tous les fichiers du repertoire à l'index :
+-< gait add .
+
+Enregistrer les modifications d'un repertoire :
+-< git commit
+avec commentaires :
+-< git commit -m "commentaire"
+ 
+Historique des commits (plus récent en haut & SHA identifiant unique):
+-< git log
+
+Combo ajout index + commit :
+-< git commit -a -m "commentaire"
+ 
+Retrouver un commit :
+-< git checkout SHADuCommit
+ 
+Revenir à la branche principale (commit le plus récent) :
+-< git checkout master
+ 
+Annulation de commit (création d'un commit inverse) :
+-< git revert SHADuCommit
+
+Modification commentaire du dernier commit /!\ avant push du commit /!\:
+-< git commit --amend -m "new commentaire"
+
+Récupérer un GitHub :
+HTTPS : entrer les identifiants à chaque fois
+SSH : clé SSH à créer
+-< git clone lienFourniParGitHub
+
+Push des modifications locales sur GitHub :
+faire les commits
+-< git push origin master
+
+Récupérer les modifications GitHub en local :
+-< git pull origin master
+
+Créer une branche :
+-< git branch nouvelle-branche
+
+Se placer dans une nouvelle branche à l'intérieur du repo :
+-< git checkout nouvelle-branche
+
+Créer nouvelle branche + s'y positionner :
+-< git checkout -b ma-branche
+
+Ajouter dans une branche A les mises à jour d'une autre branche B.
+Pour cela, on se place dans la branche A :
+-< git checkout brancheA
+-< git merge brancheB
+
+Supprimer une branche :
+-< git branch -d mabranche
+
+Savoir dans quelle branche on se trouve :
+-< git branch
+
+Ignorer des fichiers dans Git (mdp, clée, etc) :
+ Créer un fichier .gitignore
+ Lister tous les fichiers + extension dedans :
+ motsdepasse.txt
+ config/application.yml
+ Commiter ce fichier !
+

@@ -1,0 +1,20 @@
+Gestion des dépots :
+  paquet : c'est un programme « prêt à l'emploi », l'équivalent des programmes d'installation sous Windows en quelque sorte
+  dépendance : un paquet peut avoir besoin de plusieurs autres paquets pour fonctionner, on dit qu'il a des dépendances
+	dépôt : c'est le serveur sur lequel on va télécharger nos paquets.
+
+Mettre à jour le cache des paquets :
+-< sudo apt-get update
+
+Télécharger un paquet :
+-< sudo apt-get install monpaquet
+
+Rechercher un paquet :
+-< apt-cache search votrerecherche
+
+Supprimer un paquet :
+-< sudo apt-get remove monpaquet
+-< sudo apt-get autoremove monpaquet = paquet + dépendances
+
+Mettre à jour tous les paquets :
+-< sudo apt-get upgrade

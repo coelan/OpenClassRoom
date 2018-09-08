@@ -1,0 +1,25 @@
+Conversion IP / hostname :
+-< host IP ou hostname
+
+Tout savoir sur une nom de domaine :
+-< whois nomdedomaine.com
+
+Gérer et analyser le trafic réseau :
+-< iptables -L = affichier les règles FW
+-< iptables -L --line-numbers = affichier les règles FW avec n° de règles (ordre bas en haut)
+	Détails :
+		target : ce que fait la règle. Ici c'est ACCEPT, c'est-à-dire que cette ligne autorise un port et / ou une IP
+		prot : le protocole utilisé (tcp, udp, icmp). ICMP permet à votre ordinateur de répondre aux requêtes de type « ping »
+		source : l'IP de source. Pour INPUT, la source est l'ordinateur distant qui se connecte à vous
+		destination : l'IP de destination. Pour OUTPUT, c'est l'ordinateur auquel on se connecte
+		la dernière colonne : elle indique le port après les deux points « : ». Avec -n vous pouvez obtenir le numéro correspondant.
+	
+	Options (chain = INPUT/OUPUT, décision = ACCEPT/REJECT):
+	-< iptables -A (chain) -p (protocole) --dport (port) -j (décision)
+		-A chain : ajoute une règle en fin de liste pour la chain indiquée (INPUT ou OUTPUT, par exemple)
+		-D chain rulenum : supprime la règle n° rulenum pour la chain indiquée
+		-I chain rulenum : insère une règle au milieu de la liste à la position indiquée par rulenum. Si vous n'indiquez pas de position rulenum, la règle sera insérée en premier, tout en haut dans la liste
+		-R chain rulenum : remplace la règle n° rulenum dans la chain indiquée
+		-L : liste les règles (nous l'avons déjà vu)
+		-F chain : vide toutes les règles de la chain indiquée. Cela revient à supprimer toutes les règles une par une pour cette chain
+		-P chain regle : modifie la règle par défaut pour la chain. Cela permet de dire, par exemple, que par défaut tous les ports sont fermés, sauf ceux que l'on a indiqués dans les règles.

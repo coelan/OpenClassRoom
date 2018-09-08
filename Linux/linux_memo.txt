@@ -1,0 +1,169 @@
+Reset remote :
+-< ssh-keygen -R adresse-ip-du-serveur
+
+Invite de commande :
+  ~ = dossier personnel (home)
+  $ = user normal
+  # = root
+
+Liste des fichiers du répertoire :
+-< ls
+-< ls -a = avec fichiers cachés
+-< ls -l = forme liste
+-< ls -lh = affiche liste + taille compréhensible
+-< ls -t = trier par dernière modification
+-< ls -F = type d'éléments
+
+Répertoires :
+-< cd / = aller à la racine
+-< cd .. = dossier parent
+-< cd ~ = revenir à home
+-< cd = revenir à home
+
+Taille répertoires :
+-< du
+-< du -a = fichiers & dossiers
+-< du -s = grand total
+-< du -h = taille compréhensible
+
+Afficher le dossier actuel :
+-< pwd
+
+Connaitre l'emplacement d'une commande :
+-< which commande
+
+Effacer la console :
+ctrl + l
+
+Créer fichier
+-< touch fichieracreer.txt
+-< touch "fichier a creer" = fichier avec espaces
+
+Copier un fichier :
+-< cp fichier fichiercopie
+-< cp fichier repertoiredestination/
+-< cp fichier /repertoiredestination/fichiercopie = changement de nom à la cible (lien absolu)
+-< cp *.jpg = copie par type d'extension
+
+Déplacer un fichier :
+-< mv fichier repertoiredestination/
+
+Renommer un fichier :
+-< mv nominitial nomfinal
+-< mv nominitial dossier/nomfinal = déplacer & renommer
+
+Supprimer un fichier/dossier :
+-< rm fichier
+-< rm -v fichier = mode verbose
+-< rm dossier/
+-< rm -r dossier/ = suppression récursive
+-< rmdir dossier/ = suppression uniquement si vide
+
+Déplacer un répertoire :
+-< mv dossier/ dossierdestination/
+Copier un répertoire :
+-< cp -R dossier1 dossiercopie = dossier + sous-dossier
+
+Créer répertoire
+-< mkdir repertoireacreer
+-< mkdir -p rep1/rep2/rep3 = arborescence automatique
+
+Afficher tout le contenu d'un fichier
+-< cat monfichier.txt
+-< cat -n monfichier.txt = avec numéro de lignes
+
+Afficher contenu d'un fichier page par page :
+-< less monfichier.txt
+   'espace' = page suivante
+   'Entrée' = ligne suivante
+   'q' = arrêt lecture du fichier
+
+Afficher début du fichier :
+-< head monfichier.txt
+
+Afficher fin du fichier :
+-< tail monfichier.txt
+-< tail -f monfichier.txt = suivre en temps réel la fin du fichier (log)
+-< tail -f -s 3 = suivi temps réel toutes les 3 secondes
+ 
+Recherche de commande :
+-< apropos motclé-de-la-commande
+
+Localiser un fichier (via index) :
+-< locate monfichier
+-< sudo updatedb = mise à jour index locate
+
+Localiser un fichier (recherche sur le disque) :
+-< find où(option) quoi(requis) que-faire(option)
+-< find -name fichier.txt = retrouver un fichier qui s'appelle très exactement fichier.txt dans le répertoire où je suis
+-< find /var/log/ -name "syslog" = retrouver tous les fichiers qui s'appellent syslog situés dans/var/log(et ses sous-répertoires)
+-< find / -name "fichier" = retrouver un fichier qui s'appelle 'fichier' dans tout le disque 
+
+Qui fait quoi ?
+-< w = full infos
+-< uptime = uptime du serveur + renvoie la charge moyenne sur 1, 5 et 15 minutes (décimale vs 1 coeur)
+-< tload = renvoie la charge sous forme de graph dans la console
+-< who = qui est connecté
+-< ps = liste statique des processus en cours
+-< ps -ef = liste de tous les processus y compris consoles
+-< ps -ejH = afficher les processus en arbre
+-< ps -u user = lister les processus lancés par un utilisateur
+-< top = liste dynamique des processus (q ferme top)
+  paramètres :
+    B : met en gras certains éléments
+    f : ajoute ou supprime des colonnes dans la liste
+    F : change la colonne selon laquelle les processus sont triés
+    u : filtre en fonction de l'utilisateur que vous voulez
+    k : tue un processus
+    s : change l'intervalle de temps entre chaque rafraîchissement de la liste (par défaut 3 secondes)
+-< kill PID = tuer un processus
+-< kill -9 PID = tuer un processus hard kill !
+
+Arrêt / Reboot :
+-< sudo halt = arrêt machine
+-< sudo reboot = reboot
+
+Flitrer des données :
+-< grep texte nomdefichier
+-< grep "texte à trouver" nomdefichier
+-< grep -i = insensible à la casse
+-< grep -n = afficher numéros de lignes
+-< grep -v  = lignes qui ne contiennent pas le mot
+-< grep -r texte dossier/ = recherche récursive fichiers + dossiers
+-< grep -E texte1 | texte2 nomdefichier = texte1 ou texte2
+
+Trier les lignes d'un fichier :
+-< sort fichier.txt
+-< sort -o fichier.txt cible.txt = écrire le résultat dans un nouveau fichier
+-< sort -r fichier.txt = trier en ordre inverse
+-< sort -R fichier.txt = trier en ordre aléatoire
+-< sort -n fichier.txt = trier des nombres
+
+Compter les lignes, mots & caractères :
+-< wc fichier.txt
+-< wc -l fichier.txt = compter uniquement les lignes
+-< wc -w fichier.txt = compter uniquement les mots
+-< wc -c fichier.txt = compter uniquement le nombre d'octets
+-< wc -m fichier.txt = compter uniquement le nombre de caractères
+
+Supprimer les doublons :
+-< uniq fichier.txt
+-< uniq fichier.txt cible.txt = écrire le résultat dans un fichier cible
+-< uniq -c fichier.txt = compter le nombre d'occurence
+-< uniq -d fichier.txt = afficher uniquement les lignes en double
+
+Rediriger le résultat d'une commande :
+-< commande xxx > fichier.txt = créé ou écrase un fichier existant
+-< commande xxx >> fichier.txt = ajoute le résultat à la fin du fichier
+-< commande xxx > fichier.txt 2> error.log = envoie les erreurs dans un fichier à part (2>> pour la fin du fichier)
+
+Chaîner les commandes :
+-< commande1 | commande 2 = sortie de la commande1 envoyée à la commande2
+
+Exécuter en arrière-plan :
+-< commande & = exec en arrière-plan et affiche n° du processus et son PID
+-< nohup commande = exec en arrière-plan + détaché de la console
+-< ctrl + Z = met en pause l'exécution du programme
+-< bg =  passer en arrière-plan le processus en pause
+-< jobs = connaître les process qui tournent en arrière-plan (renvoie le N° pas le PID)
+-< fg %2 = reprendre le process n°2 en 1er plan
