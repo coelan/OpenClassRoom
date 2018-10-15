@@ -6,14 +6,16 @@ Minecraft version 1.12 is only compatible with OpenJDK 8. If you are using OpenJ
 
 
 apt install sudo
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 sudo apt-get install openjdk-8-jre-headless screen nano wget git
 adduser minecraft --disabled-login --disabled-password
 su - minecraft
 mkdir ~/server && cd ~/server && mkdir BuildTools && cd BuildTools
 wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+
+
 git config --global --unset core.autocrlf
-java -jar BuildTools.jar  OU  java -jar BuildTools.jar --rev 1.12.2
+java -jar BuildTools.jar
 cp spigot-1.12.2.jar ../spigot.jar
 cd ../
 echo "eula=true" > eula.txt

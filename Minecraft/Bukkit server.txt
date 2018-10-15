@@ -12,7 +12,9 @@ adduser minecraft --disabled-login --disabled-password
 su - minecraft
 mkdir ~/server && cd ~/server && mkdir BuildTools && cd BuildTools
 wget http://tcpr.ca/files/craftbukkit/craftbukkit-latest.jar
-java -jar craftbukkit-latest.jar
+wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.13.1.jar
+
+java -jar craftbukkit-1.13.1.jar
 
 
 
