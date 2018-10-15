@@ -1,0 +1,32 @@
+Server Vanilla Ubuntu :
+
+sudo apt update && sudo apt upgrade
+sudo apt-get install default-jdk    // Java dernière version
+sudo apt-get install screen
+mkdir minecraft && cd minecraft
+sudo apt-get install wget
+wget -O minecraft_server.jar https://launcher.mojang.com/v1/objects/fe123682e9cb30031eae351764f653500b7396c9/server.jar
+echo "eula=true" > eula.txt
+screen -S "Minecraft serveur 1"
+java -Xmx1024M -Xms1024M -jar minecraft_server.jar nogui
+
+
+
+
+Warning :
+Minecraft version 1.12 is only compatible with OpenJDK 8. If you are using OpenJDK 7 you must remove it using this command sudo apt remove openjdk-7-\* before continuing with this guide.
+
+
+sudo apt update && sudo apt upgrade
+-------------------
+In Ubuntu 16.04:
+sudo apt install openjdk-8-jre-headless screen
+
+In Debian 8:
+sudo apt install openjdk-8-jre-headless screen
+-------------------
+sudo adduser minecraft
+mkdir minecraft && cd minecraft
+sudo apt-get install wget
+wget -O minecraft_server.jar https://launcher.mojang.com/v1/objects/fe123682e9cb30031eae351764f653500b7396c9/server.jar
+echo "eula=true" > eula.txt
